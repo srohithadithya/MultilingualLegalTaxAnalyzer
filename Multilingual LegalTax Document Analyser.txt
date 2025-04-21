@@ -1,0 +1,30 @@
+Multilingual Legal/Tax Document Analyzer
+Objective: Extract structured data from compliance notices issued in English and regional languages.
+Scope:
+OCR + language translation + NLP on scanned documents in Hindi, Telugu, Tamil, Kannada, Bengali, etc.
+
+
+Extract and structure:
+
+
+Client name
+
+
+PII data (PAN, GSTIN)
+
+
+Nature of notice (Return mismatch, Late filing, Under-reporting, etc.)
+
+
+Deadlines and penalties
+
+
+Reporting officer/office
+
+
+Relevant legal sections (e.g., Section 143(1), 271A)
+
+
+Impact: Helps professionals across India manage notices irrespective of language or format.
+Data:invoices_notices
+Using the Image marked as Invoice
