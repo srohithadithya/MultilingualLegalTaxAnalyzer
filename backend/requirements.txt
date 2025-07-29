@@ -17,3 +17,4 @@ marshmallow-sqlalchemy==1.0.0
 Flask-Migrate==4.0.5
 pytest==8.2.2
 pytest-mock==3.14.0
+Flask-CORS==4.0.0
