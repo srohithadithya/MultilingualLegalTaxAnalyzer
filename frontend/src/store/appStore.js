@@ -3,7 +3,6 @@
 import React, { createContext, useContext, useState, useCallback } from 'react';
 import PropTypes from 'prop-types';
 
-// Create the AppContext
 export const AppContext = createContext(null);
 
 /**
@@ -11,12 +10,9 @@ export const AppContext = createContext(null);
  * Examples: global loading, theme preferences.
  */
 export const AppProvider = ({ children }) => {
-  const [globalLoading, setGlobalLoading] = useState(false); // For full-screen loading, not specific API calls
-  const [currentTheme, setCurrentTheme] = useState('light'); // Example: 'light' or 'dark' theme
+  const [globalLoading, setGlobalLoading] = useState(false);
+  const [currentTheme, setCurrentTheme] = useState('light');
 
-  /**
-   * Toggles the application's theme between 'light' and 'dark'.
-   */
   const toggleTheme = useCallback(() => {
     setCurrentTheme((prevTheme) => {
       const newTheme = prevTheme === 'light' ? 'dark' : 'light';
@@ -42,6 +38,8 @@ export const AppProvider = ({ children }) => {
     toggleTheme,
   };
 
+  // Ensure this return block is exactly as shown, with proper indentation
+  // No extra characters or weird newlines before `<AppContext.Provider`
   return (
     <AppContext.Provider value={contextValue}>
       {children}
@@ -53,10 +51,6 @@ AppProvider.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-/**
- * Custom hook to consume the AppContext.
- * @returns {{globalLoading: boolean, setGlobalLoading: Function, currentTheme: string, toggleTheme: Function}}
- */
 export const useAppContext = () => {
   const context = useContext(AppContext);
   if (context === undefined) {
