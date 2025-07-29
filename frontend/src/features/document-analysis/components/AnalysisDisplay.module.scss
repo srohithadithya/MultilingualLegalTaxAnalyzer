@@ -1,0 +1,148 @@
+/* frontend/src/features/document-analysis/components/AnalysisDisplay.module.scss */
+
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+.analysisDisplay {
+  @include card-shadow;
+  padding: $spacing-xxl;
+  animation: fadeIn 0.8s ease-out;
+
+  .title {
+    font-size: $font-size-xxl;
+    color: $color-primary;
+    text-align: center;
+    margin-bottom: $spacing-md;
+  }
+
+  .analyzedAt {
+    font-size: $font-size-sm;
+    color: $color-secondary;
+    text-align: center;
+    margin-bottom: $spacing-xl;
+  }
+
+  .outputControls {
+    @include flex-center;
+    flex-wrap: wrap; // Allow wrapping on small screens
+    gap: $spacing-lg;
+    margin-bottom: $spacing-xxl;
+    padding-bottom: $spacing-lg;
+    border-bottom: 1px solid $color-border;
+
+    > div { // For LanguageSelector wrapping
+        flex-shrink: 0;
+        min-width: 150px;
+    }
+  }
+
+  .section {
+    margin-bottom: $spacing-xxl;
+    padding: $spacing-lg;
+    border-radius: $border-radius-md;
+    background-color: $color-bg-gray;
+    border-left: 4px solid $color-primary; // Accent border
+
+    h3 {
+      font-size: $font-size-xl;
+      color: $color-text-dark;
+      margin-bottom: $spacing-md;
+    }
+  }
+
+  .dataField {
+    margin-bottom: $spacing-sm;
+    font-size: $font-size-base;
+    strong {
+      color: $color-primary; // Emphasize labels
+    }
+  }
+
+  .partiesGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $spacing-xl;
+    
+    @include media-md {
+      grid-template-columns: 1fr 1fr; // Two columns on medium screens and up
+    }
+
+    h4 {
+      font-size: $font-size-lg;
+      color: $color-secondary;
+      margin-bottom: $spacing-md;
+      border-bottom: 1px dashed $color-border;
+      padding-bottom: $spacing-xs;
+    }
+  }
+
+  .lineItemsTable {
+    width: 100%;
+    overflow-x: auto;
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 500px; // Ensure table doesn't get too squished
+
+      th, td {
+        padding: $spacing-md;
+        border: 1px solid $color-border;
+        text-align: left;
+        font-size: $font-size-base;
+      }
+      th {
+        background-color: lighten($color-primary, 40%);
+        font-weight: bold;
+        color: $color-text-dark;
+      }
+      tr:nth-child(even) {
+        background-color: $color-bg-light; // Zebra striping
+      }
+    }
+  }
+
+  .rawTextSnippet {
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    padding: $spacing-md;
+    font-family: 'Courier New', monospace;
+    white-space: pre-wrap; // Preserve whitespace but wrap lines
+    word-break: break-word; // Break long words
+    max-height: 200px;
+    overflow-y: auto;
+    font-size: $font-size-sm;
+    border-radius: $border-radius-sm;
+  }
+
+  .errorMessage {
+    @extend .message.error;
+    text-align: center;
+  }
+  .successMessage {
+    @extend .message.success;
+    text-align: center;
+  }
+  .loadingWrapper {
+    @include flex-column-center;
+    height: 300px; // Give some height for spinner
+    gap: $spacing-md;
+    font-size: $font-size-lg;
+    color: $color-secondary;
+  }
+
+  .errorSection {
+    background-color: lighten($color-danger, 40%);
+    border-left-color: $color-danger;
+    li {
+      color: darken($color-danger, 10%);
+    }
+  }
+  .warningSection {
+    background-color: lighten($color-warning, 40%);
+    border-left-color: $color-warning;
+    li {
+      color: darken($color-warning, 10%);
+    }
+  }
+}

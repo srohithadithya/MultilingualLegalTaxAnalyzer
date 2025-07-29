@@ -1,0 +1,81 @@
+/* frontend/src/features/auth/components/AuthForms.module.scss */
+
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+.authForm {
+  @include card-shadow; // Apply card styling
+  max-width: 450px;
+  width: 100%;
+  padding: $spacing-xl $spacing-xxl; // More generous padding
+  text-align: center;
+  animation: slideInUp 0.6s ease-out; // Animation on form load
+
+  .formTitle {
+    font-size: $font-size-xl;
+    color: $color-primary;
+    margin-bottom: $spacing-xxl;
+    position: relative;
+    padding-bottom: $spacing-sm; // Space for underline
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background-color: $color-primary;
+      border-radius: 2px;
+    }
+  }
+
+  .formGroup {
+    text-align: left;
+    margin-bottom: $spacing-lg;
+
+    label {
+      display: block;
+      margin-bottom: $spacing-sm;
+      font-size: $font-size-base;
+      font-weight: bold;
+      color: $color-text-dark;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+      @include input-field; // Reuses input field styling
+      width: 100%; // Ensure full width within form group
+      box-sizing: border-box; // Include padding/border in width
+    }
+  }
+
+  .errorMessage {
+    @extend .message.error; // Extends global error message style
+    text-align: left;
+    margin-bottom: $spacing-lg;
+  }
+
+  .submitButton {
+    width: 100%;
+    margin-top: $spacing-md;
+  }
+
+  .switchFormText {
+    margin-top: $spacing-xl;
+    font-size: $font-size-sm;
+    color: $color-secondary;
+  }
+
+  .switchFormLink {
+    color: $color-primary;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: underline;
+    transition: color 0.3s ease;
+    &:hover {
+      color: darken($color-primary, 10%);
+    }
+  }
+}

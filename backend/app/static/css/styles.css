@@ -1,0 +1,170 @@
+/* backend/app/static/css/style.css */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa; /* Light gray background */
+    color: #343a40; /* Darker text for readability */
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Full viewport height */
+}
+
+.container {
+    max-width: 800px;
+    margin: 50px auto; /* Top/bottom margin, auto left/right for centering */
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    flex-grow: 1; /* Allows container to grow and push footer down */
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+h1, h2, h3 {
+    color: #0056b3; /* A professional blue */
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-weight: 600; /* Slightly bolder headings */
+}
+
+h1 {
+    font-size: 2.5em;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 10px;
+    display: inline-block; /* To make border only under text */
+}
+
+p {
+    margin-bottom: 15px;
+    font-size: 1.05em;
+}
+
+/* Form Styling (if auth templates are used) */
+form {
+    margin-top: 25px;
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background-color: #fefefe;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #495057;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: calc(100% - 20px); /* Adjust for padding */
+    padding: 12px 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    font-size: 1em;
+    box-sizing: border-box; /* Include padding in width calculation */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    outline: none;
+}
+
+input[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Flash Messages */
+.flashes {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.error-message, .danger-message { /* Using danger-message for consistency with Flask flash categories */
+    color: #dc3545; /* Red */
+    font-weight: bold;
+    font-size: 1.05em;
+    margin-bottom: 10px;
+    padding: 12px 15px;
+    background-color: #f8d7da;
+    border-left: 5px solid #dc3545;
+    border-radius: 4px;
+}
+
+.info-message {
+    color: #007bff; /* Blue */
+    font-weight: bold;
+    font-size: 1.05em;
+    margin-bottom: 10px;
+    padding: 12px 15px;
+    background-color: #e2f2ff;
+    border-left: 5px solid #007bff;
+    border-radius: 4px;
+}
+
+.success-message {
+    color: #28a745; /* Green */
+    font-weight: bold;
+    font-size: 1.05em;
+    margin-bottom: 10px;
+    padding: 12px 15px;
+    background-color: #d4edda;
+    border-left: 5px solid #28a745;
+    border-radius: 4px;
+}
+
+/* Links */
+a {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+/* Footer */
+footer {
+    margin-top: auto; /* Pushes footer to the bottom */
+    padding: 20px;
+    text-align: center;
+    background-color: #e9ecef; /* Light gray background for footer */
+    color: #6c757d; /* Darker gray text */
+    font-size: 0.9em;
+    border-top: 1px solid #dee2e6;
+}
+
+/* Logo (if you decide to display one on Flask-served pages) */
+.logo {
+    max-width: 150px;
+    height: auto;
+    margin-bottom: 20px;
+}

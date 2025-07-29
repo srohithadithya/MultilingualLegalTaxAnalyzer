@@ -1,0 +1,184 @@
+/* frontend/src/pages/HomePage/HomePage.module.scss */
+
+@import '../../styles/variables';
+@import '../../styles/mixins';
+@import '../../styles/animations';
+
+.homePage {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: $color-bg-light; // Base background
+}
+
+.heroSection {
+  @include flex-center;
+  flex-direction: column;
+  min-height: 70vh; // Take up most of the viewport height
+  background: linear-gradient(135deg, lighten($color-primary, 30%), $color-primary); // Vibrant gradient
+  color: $color-text-light;
+  text-align: center;
+  padding: $spacing-xxl;
+  position: relative;
+  overflow: hidden; // Hide overflow from animations if any
+
+  // Optional: Background animation effect
+  // animation: heroBgPulse 10s infinite alternate ease-in-out;
+  // background-size: 100% 100%;
+
+  .heroContent {
+    z-index: 1; // Ensure content is above any background animations
+    animation: fadeIn 1.5s ease-out;
+
+    .heroLogo {
+      width: 150px;
+      height: auto;
+      margin-bottom: $spacing-md;
+      animation: pulse 2s infinite ease-in-out; // Subtle pulse animation
+    }
+
+    .heroTitle {
+      font-size: $font-size-xxl * 1.2; // Even larger title
+      margin-bottom: $spacing-lg;
+      line-height: 1.1;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); // Text shadow for readability
+      @include media-md {
+        font-size: $font-size-xxl;
+      }
+      @include media-sm {
+        font-size: $font-size-xl;
+      }
+    }
+
+    .heroSubtitle {
+      font-size: $font-size-lg;
+      max-width: 800px;
+      margin: 0 auto $spacing-xxl;
+      opacity: 0.9;
+      @include media-md {
+        font-size: $font-size-base;
+      }
+    }
+
+    .ctaButtons {
+      @include flex-center;
+      gap: $spacing-lg;
+
+      .mainCtaButton, .secondaryCtaButton {
+        @include button-base; // Use base button styles
+        font-size: $font-size-lg;
+        padding: $spacing-lg $spacing-xxl;
+        border-radius: $border-radius-lg; // More rounded
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        &:hover {
+            transform: translateY(-2px); // Lift effect
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+      }
+
+      .mainCtaButton {
+        background-color: $color-text-light; // White button on blue background
+        color: $color-primary;
+        font-weight: bold;
+        border: none;
+      }
+
+      .secondaryCtaButton {
+        background-color: transparent;
+        color: $color-text-light;
+        border: 2px solid $color-text-light;
+        font-weight: bold;
+        &:hover {
+          background-color: $color-text-light;
+          color: $color-primary;
+        }
+      }
+      @include media-sm {
+        flex-direction: column;
+        .mainCtaButton, .secondaryCtaButton {
+            width: 80%;
+            font-size: $font-size-base;
+        }
+      }
+    }
+  }
+}
+
+.featuresSection {
+  background-color: $color-bg-gray;
+  padding: $spacing-xxl;
+  text-align: center;
+
+  h2 {
+    font-size: $font-size-xxl;
+    color: $color-text-dark;
+    margin-bottom: $spacing-xxl;
+    position: relative;
+    padding-bottom: $spacing-md;
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 4px;
+      background-color: $color-secondary;
+      border-radius: 2px;
+    }
+  }
+
+  .featureGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); // Responsive grid
+    gap: $spacing-xl;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    .featureCard {
+      @include card-shadow;
+      padding: $spacing-xl;
+      text-align: left;
+      transition: transform 0.3s ease;
+      &:hover {
+        transform: translateY(-5px); // Lift effect on hover
+      }
+
+      h3 {
+        font-size: $font-size-lg;
+        color: $color-primary;
+        margin-bottom: $spacing-md;
+        border-bottom: 1px solid lighten($color-primary, 30%);
+        padding-bottom: $spacing-xs;
+      }
+
+      p {
+        font-size: $font-size-base;
+        color: $color-text-dark;
+      }
+    }
+  }
+}
+
+.authSection {
+  background-color: $color-bg-light;
+  padding: $spacing-xxl;
+  @include flex-center; // Center the auth form
+  flex-grow: 1; // Allow this section to take available height
+
+  .authFormWrapper {
+    width: 100%;
+    // Form component itself has max-width
+  }
+}
+
+.footer {
+  // Reusing footer from MainLayout's SCSS or defining a simplified one
+  background-color: $color-text-dark;
+  color: $color-text-light;
+  padding: $spacing-lg $spacing-xl;
+  text-align: center;
+  font-size: $font-size-sm;
+  border-top: 1px solid #333;
+}

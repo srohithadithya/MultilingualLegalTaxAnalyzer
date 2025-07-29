@@ -1,0 +1,93 @@
+/* frontend/src/components/Button/Button.module.scss */
+
+@import '../../styles/variables';
+@import '../../styles/mixins';
+@import '../../styles/animations';
+
+.button {
+  @include button-base; // Base styles from mixins
+
+  // Sizes
+  &.sm {
+    padding: $spacing-xs $spacing-sm;
+    font-size: $font-size-sm;
+  }
+  &.md {
+    padding: $spacing-md $spacing-lg;
+    font-size: $font-size-base;
+  }
+  &.lg {
+    padding: $spacing-lg $spacing-xl;
+    font-size: $font-size-md;
+  }
+
+  // Variants
+  &.primary {
+    @include button-primary;
+  }
+
+  &.secondary {
+    background-color: $color-secondary;
+    color: $color-text-light;
+    &:hover {
+      background-color: darken($color-secondary, 10%);
+    }
+  }
+
+  &.outline {
+    @include button-outline-primary; // Uses primary color for outline
+    // Can also define outline for other colors if needed
+  }
+
+  &.text {
+    background: none;
+    color: $color-primary;
+    padding: $spacing-sm; // Smaller padding for text buttons
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &.danger {
+    background-color: $color-danger;
+    color: $color-text-light;
+    &:hover {
+      background-color: darken($color-danger, 10%);
+    }
+  }
+
+  &.success {
+    background-color: $color-success;
+    color: $color-text-light;
+    &:hover {
+      background-color: darken($color-success, 10%);
+    }
+  }
+
+  // Disabled state
+  &.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    pointer-events: none; // Disable click events
+  }
+
+  // Loading spinner
+  .spinner {
+    display: inline-block;
+    width: $spacing-md;
+    height: $spacing-md;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: #fff;
+    animation: spin 0.8s linear infinite;
+    vertical-align: middle;
+    margin: 0 auto; // Center if only spinner
+  }
+
+  // Spinner color adjustment for text/outline buttons
+  &.text .spinner,
+  &.outline .spinner {
+    border-top-color: $color-primary;
+    border-color: rgba($color-primary, 0.3);
+  }
+}

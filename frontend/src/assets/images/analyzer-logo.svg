@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <defs>
+    <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#007bff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0056b3;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="glassGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#f0f2f5;stop-opacity:0.6" />
+    </linearGradient>
+  </defs>
+
+  <rect x="10" y="10" width="80" height="80" rx="15" ry="15" fill="url(#logoGradient)"/>
+
+  <path d="M 25 35 H 75" stroke="#ffffff" stroke-width="4" stroke-linecap="round" opacity="0.6"/>
+  <path d="M 25 50 H 65" stroke="#ffffff" stroke-width="4" stroke-linecap="round" opacity="0.5"/>
+  <path d="M 25 65 H 55" stroke="#ffffff" stroke-width="4" stroke-linecap="round" opacity="0.4"/>
+
+  <circle cx="70" cy="30" r="18" stroke="#ffffff" stroke-width="4" fill="url(#glassGradient)" opacity="0.9"/>
+  <line x1="80" y1="40" x2="90" y2="50" stroke="#ffffff" stroke-width="4" stroke-linecap="round"/>
+
+  <path d="M 60 35 L 70 25 L 80 35" stroke="#007bff" stroke-width="2.5" stroke-linecap="round" fill="none" opacity="0.8"/>
+  <line x1="70" y1="25" x2="70" y2="35" stroke="#007bff" stroke-width="2.5" stroke-linecap="round" opacity="0.8"/>
+
+</svg>

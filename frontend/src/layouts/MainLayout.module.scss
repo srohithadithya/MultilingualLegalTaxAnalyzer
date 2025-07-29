@@ -1,0 +1,207 @@
+/* frontend/src/layouts/MainLayout.module.scss */
+
+@import '../styles/variables';
+@import '../styles/mixins';
+@import '../styles/animations';
+
+.mainLayout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: $color-bg-gray; // Overall background
+}
+
+.header {
+  background-color: $color-bg-light;
+  border-bottom: 1px solid $color-border;
+  box-shadow: 0 2px 8px $color-shadow-light;
+  padding: $spacing-md $spacing-xl;
+  position: sticky;
+  top: 0;
+  z-index: 100; // Ensures header stays on top
+
+  .headerContent {
+    @include flex-between;
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+    
+    @include media-md {
+      flex-wrap: wrap; // Allow wrapping on smaller screens
+      justify-content: center; // Center items when wrapped
+      gap: $spacing-md;
+    }
+  }
+
+  .logoLink {
+    @include flex-center;
+    gap: $spacing-sm;
+    text-decoration: none; // Remove underline
+    color: $color-text-dark; // Default text color for logo area
+    font-weight: bold;
+    font-size: $font-size-lg;
+    
+    .logo {
+      height: 40px; // Adjust logo size
+      width: auto;
+    }
+    .appName {
+      color: $color-primary;
+    }
+  }
+
+  .navbarNav {
+    ul {
+      list-style: none;
+      @include flex-center;
+      gap: $spacing-lg;
+      margin: 0;
+      padding: 0;
+      
+      @include media-md {
+        gap: $spacing-md;
+        margin-top: $spacing-sm; // Space from logo if wrapped
+      }
+
+      li a {
+        color: $color-text-dark;
+        font-weight: 500;
+        transition: $transition-ease;
+        &:hover {
+          color: $color-primary;
+          text-decoration: none;
+        }
+        &.active { // For active link styling (can be used with NavLink from react-router-dom)
+          color: $color-primary;
+          border-bottom: 2px solid $color-primary;
+          padding-bottom: $spacing-xs;
+        }
+      }
+    }
+  }
+
+  .userControls {
+    @include flex-center;
+    gap: $spacing-md;
+    
+    @include media-md {
+      margin-top: $spacing-sm;
+    }
+
+    .welcomeText {
+      font-size: $font-size-base;
+      color: $color-secondary;
+      white-space: nowrap; // Prevent wrapping for short text
+      @include media-sm {
+        display: none; // Hide on very small screens to save space
+      }
+    }
+  }
+}
+
+.content {
+  flex-grow: 1; // Allows main content to take up available space
+  padding: $spacing-xl; // Padding around the content area
+  @include media-md {
+    padding: $spacing-lg;
+  }
+  @include media-sm {
+    padding: $spacing-md;
+  }
+}
+
+.footer {
+  background-color: $color-text-dark;
+  color: $color-text-light;
+  padding: $spacing-lg $spacing-xl;
+  text-align: center;
+  font-size: $font-size-sm;
+  border-top: 1px solid #333;
+
+  p {
+    margin: $spacing-xs 0;
+  }
+}
+
+// Styles for global message display (Toast-like)
+.messageContainer {
+  position: fixed;
+  top: $spacing-xl;
+  right: $spacing-xl;
+  z-index: 1000; // Ensures messages are on top of other content
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+  max-width: 350px; // Limit message width
+
+  @include media-sm {
+    top: $spacing-md;
+    right: $spacing-md;
+    left: $spacing-md;
+    max-width: unset; // Full width on small screens
+  }
+}
+
+.messageItem {
+  @include card-shadow; // Use card shadow for message boxes
+  padding: $spacing-md $spacing-lg;
+  border-radius: $border-radius-sm;
+  font-size: $font-size-base;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: $spacing-md;
+  cursor: pointer; // Indicate clickable for dismissal
+  animation: slideInUp 0.5s ease-out forwards; // Animate messages sliding in
+
+  p {
+    margin: 0;
+    flex-grow: 1;
+  }
+
+  .closeButton {
+    background: none;
+    border: none;
+    font-size: $font-lg;
+    line-height: 1;
+    cursor: pointer;
+    color: inherit; // Inherit color from message type
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  // Message types based on global styles
+  &.success {
+    background-color: lighten($color-success, 35%);
+    color: darken($color-success, 20%);
+    border-left: 5px solid $color-success;
+  }
+  &.error {
+    background-color: lighten($color-danger, 35%);
+    color: darken($color-danger, 20%);
+    border-left: 5px solid $color-danger;
+  }
+  &.info {
+    background-color: lighten($color-info, 35%);
+    color: darken($color-info, 20%);
+    border-left: 5px solid $color-info;
+  }
+  &.warning { // Added warning message style
+    background-color: lighten($color-warning, 35%);
+    color: darken($color-warning, 20%);
+    border-left: 5px solid $color-warning;
+  }
+}
+
+// For AuthProvider's initial loading state, if it uses a simple div
+.unauthenticatedRedirect {
+  @include flex-column-center;
+  min-height: 100vh;
+  gap: $spacing-md;
+  font-size: $font-size-lg;
+  color: $color-secondary;
+}

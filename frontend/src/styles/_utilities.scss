@@ -1,0 +1,71 @@
+/* frontend/src/styles/_utilities.scss */
+
+@import 'variables';
+
+.u-flex {
+  display: flex;
+}
+
+.u-flex-center {
+  @include flex-center;
+}
+
+.u-flex-column-center {
+  @include flex-column-center;
+}
+
+.u-flex-between {
+  @include flex-between;
+}
+
+.u-text-center {
+  text-align: center;
+}
+
+.u-text-right {
+  text-align: right;
+}
+
+.u-margin-bottom-sm {
+  margin-bottom: $spacing-sm;
+}
+
+.u-margin-bottom-md {
+  margin-bottom: $spacing-md;
+}
+
+.u-margin-bottom-lg {
+  margin-bottom: $spacing-lg;
+}
+
+.u-padding-md {
+  padding: $spacing-md;
+}
+
+.u-hidden {
+  display: none !important;
+}
+
+// Responsive utilities
+@include media-md {
+  .u-hidden-md-down {
+    display: none !important;
+  }
+}
+
+@include media-lg {
+  .u-hidden-lg-down {
+    display: none !important;
+  }
+}
+
+// Colors as utility classes
+.u-text-primary {
+  color: $color-primary;
+}
+.u-text-danger {
+  color: $color-danger;
+}
+.u-bg-gray {
+  background-color: $color-bg-gray;
+}

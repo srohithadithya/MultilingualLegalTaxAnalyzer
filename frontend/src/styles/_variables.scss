@@ -1,0 +1,50 @@
+/* frontend/src/styles/_variables.scss */
+
+// --- Colors ---
+$color-primary: #007bff;        // Blue for main actions/branding
+$color-secondary: #6c757d;      // Gray for secondary elements
+$color-success: #28a745;        // Green for success messages
+$color-danger: #dc3545;         // Red for error messages
+$color-warning: #ffc107;        // Yellow for warnings
+$color-info: #17a2b8;           // Cyan for info messages
+
+$color-text-dark: #343a40;      // Main dark text
+$color-text-light: #f8f9fa;     // Light text (e.g., on dark backgrounds)
+$color-bg-light: #ffffff;       // White background
+$color-bg-gray: #f0f2f5;        // Light gray background
+
+$color-border: #dee2e6;         // Light border color
+$color-shadow-light: rgba(0, 0, 0, 0.08); // Subtle shadow
+
+// --- Fonts ---
+$font-family-base: 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+$font-family-heading: 'Poppins', sans-serif; // Or a similar modern sans-serif font
+
+$font-size-base: 1rem;
+$font-size-sm: 0.875rem;
+$font-size-md: 1.125rem;
+$font-size-lg: 1.25rem;
+$font-size-xl: 1.75rem;
+$font-size-xxl: 2.5rem;
+
+// --- Spacing ---
+$spacing-xs: 0.25rem;  // 4px
+$spacing-sm: 0.5rem;   // 8px
+$spacing-md: 1rem;     // 16px
+$spacing-lg: 1.5rem;   // 24px
+$spacing-xl: 2rem;     // 32px
+$spacing-xxl: 3rem;    // 48px
+
+// --- Breakpoints ---
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+
+// --- Border Radius ---
+$border-radius-sm: 4px;
+$border-radius-md: 8px;
+$border-radius-lg: 12px;
+
+// --- Transitions ---
+$transition-ease: all 0.3s ease-in-out;

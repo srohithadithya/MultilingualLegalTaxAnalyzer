@@ -1,0 +1,29 @@
+/* frontend/src/pages/AnalysisResultPage/AnalysisResultPage.module.scss */
+
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.analysisResultPage {
+  padding: $spacing-xxl;
+  animation: fadeIn 0.8s ease-out;
+
+  @include media-md {
+    padding: $spacing-xl;
+  }
+  @include media-sm {
+    padding: $spacing-lg;
+  }
+
+  .backButton {
+    margin-bottom: $spacing-xl;
+    min-width: unset; // Override button default if necessary
+  }
+
+  .noData {
+    @include flex-center;
+    min-height: 200px;
+    font-size: $font-size-lg;
+    color: $color-secondary;
+    text-align: center;
+  }
+}

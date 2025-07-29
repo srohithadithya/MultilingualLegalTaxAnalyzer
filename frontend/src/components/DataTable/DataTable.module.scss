@@ -1,0 +1,67 @@
+/* frontend/src/components/DataTable/DataTable.module.scss */
+
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.tableContainer {
+  width: 100%;
+  overflow-x: auto; // Allow horizontal scrolling on small screens
+  border: 1px solid $color-border;
+  border-radius: $border-radius-md;
+  box-shadow: 0 2px 8px $color-shadow-light;
+  background-color: $color-bg-light;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse; // No space between borders
+  min-width: 600px; // Ensure minimum width for complex tables
+
+  th, td {
+    padding: $spacing-md $spacing-lg;
+    text-align: left;
+    border-bottom: 1px solid $color-border;
+    font-size: $font-size-base;
+    color: $color-text-dark;
+  }
+
+  // Header styles
+  th {
+    background-color: $color-bg-gray;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: $font-size-sm;
+    color: $color-secondary;
+    padding-top: $spacing-lg;
+    padding-bottom: $spacing-lg;
+    white-space: nowrap; // Prevent header text from wrapping
+  }
+
+  // Row styles
+  .dataRow {
+    &:last-child td {
+      border-bottom: none; // No border on the last row
+    }
+    &:hover {
+      background-color: lighten($color-primary, 40%); // Light highlight on hover
+    }
+  }
+
+  // Cell styles
+  .dataCell {
+    white-space: nowrap; // Prevent text wrapping in cells
+    overflow: hidden;
+    text-overflow: ellipsis; // Truncate text with ellipsis if it overflows
+    max-width: 200px; // Max width for cells to prevent overly wide columns
+  }
+}
+
+.loadingContainer, .emptyMessage {
+  @include flex-center;
+  min-height: 100px;
+  width: 100%;
+  font-size: $font-size-base;
+  color: $color-secondary;
+  padding: $spacing-xl;
+  text-align: center;
+}

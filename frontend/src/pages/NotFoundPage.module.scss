@@ -1,0 +1,44 @@
+/* frontend/src/pages/NotFoundPage.module.scss */
+
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.notFoundPage {
+  @include flex-column-center;
+  min-height: 100vh; // Take full height
+  background-color: $color-bg-gray;
+  color: $color-text-dark;
+  text-align: center;
+  padding: $spacing-xxl;
+  animation: fadeIn 1s ease-out; // Subtle fade in
+
+  .title {
+    font-size: 8em; // Large 404 number
+    color: $color-danger; // Red for error
+    margin-bottom: $spacing-md;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.1);
+    @include media-sm {
+      font-size: 5em;
+    }
+  }
+
+  .message {
+    font-size: $font-size-xl;
+    margin-bottom: $spacing-lg;
+    color: $color-secondary;
+    @include media-sm {
+      font-size: $font-size-lg;
+    }
+  }
+
+  .homeLink {
+    @include button-primary; // Use primary button styling from mixins
+    font-size: $font-size-base;
+    padding: $spacing-md $spacing-xl;
+    border-radius: $border-radius-md;
+    margin-top: $spacing-md;
+    &:hover {
+      text-decoration: none; // Remove underline on hover for buttons
+    }
+  }
+}

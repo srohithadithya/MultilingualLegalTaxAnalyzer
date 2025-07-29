@@ -1,0 +1,94 @@
+/* frontend/src/features/document-analysis/components/DocumentUploader.module.scss */
+
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+.uploaderContainer {
+  @include card-shadow;
+  padding: $spacing-xl;
+  text-align: center;
+  margin-bottom: $spacing-xxl;
+  animation: fadeIn 0.8s ease-out;
+
+  h3 {
+    font-size: $font-size-xl;
+    color: $color-text-dark;
+    margin-bottom: $spacing-lg;
+  }
+}
+
+.dragArea {
+  border: 2px dashed $color-border;
+  border-radius: $border-radius-md;
+  padding: $spacing-xxl $spacing-lg;
+  background-color: lighten($color-bg-gray, 2%);
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  position: relative; // For positioning fileInput
+  
+  @include flex-column-center;
+  gap: $spacing-md;
+
+  &.dragActive {
+    border-color: $color-primary;
+    background-color: lighten($color-primary, 45%); // Lighter blue on drag active
+  }
+
+  .fileInput {
+    display: none; // Hide the default file input
+  }
+
+  .dragText {
+    font-size: $font-size-lg;
+    color: $color-secondary;
+    font-weight: 500;
+  }
+
+  .orText {
+    font-size: $font-size-base;
+    color: $color-secondary;
+    margin: 0;
+  }
+
+  .supportedTypes {
+    font-size: $font-size-sm;
+    color: $color-secondary;
+    margin-top: $spacing-sm;
+  }
+}
+
+.selectedFileDisplay {
+  margin-top: $spacing-lg;
+  padding: $spacing-md;
+  border: 1px solid $color-border;
+  border-radius: $border-radius-sm;
+  background-color: $color-bg-light;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-md;
+
+  p {
+    margin: 0;
+    font-size: $font-size-base;
+    color: $color-text-dark;
+  }
+
+  .uploadButton {
+    min-width: 200px;
+  }
+}
+
+.uploadSpinner {
+  margin-top: $spacing-lg;
+}
+
+.errorMessage {
+  @extend .message.error; // Extend global styles
+  margin-top: $spacing-md;
+}
+
+.successMessage {
+  @extend .message.success; // Extend global styles
+  margin-top: $spacing-md;
+}
