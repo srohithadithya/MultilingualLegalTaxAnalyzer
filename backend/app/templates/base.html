@@ -10,11 +10,9 @@
 <body>
     <div class="container">
         <header>
-            {% if self.block("page_heading") %} {# Check if page_heading is defined in child template #}
-                {% block page_heading %}{% endblock %}
-            {% else %}
-                <h1>Multi-Lingual Tax Analyzer</h1>
-            {% endif %}
+            {% block page_heading %}
+            <h1>Multi-Lingual Tax Analyzer</h1>
+            {% endblock %}
         </header>
 
         <main>
