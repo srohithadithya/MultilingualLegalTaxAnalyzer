@@ -1,9 +1,9 @@
 /* frontend/src/styles/global.scss */
 
-@import 'variables';
-@import 'mixins';
-@import 'animations';
-@import 'utilities';
+@use 'variables' as *;   // Imports variables
+@use 'mixins' as *;      // Imports mixins
+@use 'animations' as *;  // Imports animations
+@use 'utilities' as *;
 
 // Global Typography
 body {
