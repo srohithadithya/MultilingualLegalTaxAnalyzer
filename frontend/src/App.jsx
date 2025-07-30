@@ -4,7 +4,7 @@ import React from 'react';
 import AppRouter from './router/AppRouter'; // Import your AppRouter
 import { AuthProvider } from './features/auth/AuthProvider'; // Import AuthProvider
 import { MessageProvider } from './store/messageStore.jsx'; // Import MessageProvider
-import { AppProvider } from './store/appStore'; // Import AppProvider
+import { AppProvider } from './store/appStore.jsx'; // Import AppProvider
 
 /**
  * The root component of the application.
