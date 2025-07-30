@@ -1,7 +1,7 @@
 /* frontend/src/pages/DashboardPage/DashboardPage.module.scss */
 
-@use '../../styles/variables';
-@use '../../styles/mixins';
+@use '~styles/variables' as *;
+@use '~styles/mixins' as *;
 
 .dashboardPage {
   padding: $spacing-xxl;
