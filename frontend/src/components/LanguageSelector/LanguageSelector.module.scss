@@ -1,7 +1,7 @@
 /* frontend/src/components/LanguageSelector/LanguageSelector.module.scss */
 
-@use '../../styles/variables';
-@use '../../styles/mixins';
+@use '~styles/variables' as *;
+@use '~styles/mixins' as *;
 
 .languageSelector {
   display: flex;
