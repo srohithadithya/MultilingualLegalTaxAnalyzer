@@ -1,7 +1,7 @@
 /* frontend/src/pages/AnalysisResultPage/AnalysisResultPage.module.scss */
 
-@use '../../styles/variables';
-@use '../../styles/mixins';
+@use '~styles/variables' as *;
+@use '~styles/mixins' as *;
 
 .analysisResultPage {
   padding: $spacing-xxl;
