@@ -1,6 +1,6 @@
 /* frontend/src/styles/_utilities.scss */
 
-@import 'variables';
+@use 'variables';
 
 .u-flex {
   display: flex;
