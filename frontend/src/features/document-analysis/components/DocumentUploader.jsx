@@ -6,7 +6,7 @@ import Button from '../../../components/Button/Button';
 import LoadingSpinner from '../../../components/LoadingSpinner/LoadingSpinner';
 import { useDocumentAnalysis } from '../hooks/useDocumentAnalysis.jsx'; // Import our analysis hook
 import styles from './DocumentUploader.module.scss';
-import UploadIcon from '../../assets/icons/upload-icon.svg';
+import uploadIcon from '../../assets/icons/upload-icon.svg';
 
 /**
  * DocumentUploader component provides a drag-and-drop interface for file uploads.
