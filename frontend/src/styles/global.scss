@@ -1,8 +1,10 @@
 /* frontend/src/styles/global.scss */
 
-@use 'variables' as *;   // Imports variables
-@use 'mixins' as *;      // Imports mixins
-@use 'animations' as *;  // Imports animations
+// Import variables, mixins, animations, utilities from the same directory using 'as *'
+// This makes their content globally available within this file without prefix.
+@use 'variables' as *;
+@use 'mixins' as *;
+@use 'animations' as *;
 @use 'utilities' as *;
 
 // Global Typography
@@ -22,7 +24,7 @@ h1, h2, h3, h4, h5, h6 {
 h1 { font-size: $font-size-xxl; }
 h2 { font-size: $font-size-xl; }
 h3 { font-size: $font-size-lg; }
-h4 { font-size: $font-size-base; } // Example: You might want h4 to be base size
+h4 { font-size: $font-size-base; }
 
 // Global Form Elements (basic styling, components will override)
 input[type="text"],
@@ -77,5 +79,10 @@ button {
     background-color: lighten($color-info, 40%);
     color: darken($color-info, 20%);
     border-left: 4px solid $color-info;
+  }
+  &.warning {
+    background-color: lighten($color-warning, 40%);
+    color: darken($color-warning, 20%);
+    border-left: 4px solid $color-warning;
   }
 }
