@@ -2,7 +2,7 @@
 
 import React, { useEffect } from 'react';
 import { useAuth } from '../../features/auth/hooks/useAuth'; // Get user info
-import { useDocumentAnalysis } from '../../features/document-analysis/hooks/useDocumentAnalysis'; // Document analysis hook
+import { useDocumentAnalysis } from '../../features/document-analysis/hooks/useDocumentAnalysis.jsx'; // Document analysis hook
 import { useMessage } from '../../store/messageStore'; // Global message context
 import DocumentUploader from '../../features/document-analysis/components/DocumentUploader';
 import PreviousAnalysisTable from '../../features/document-analysis/components/PreviousAnalysisTable';
