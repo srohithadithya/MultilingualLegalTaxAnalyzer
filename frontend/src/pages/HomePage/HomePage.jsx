@@ -2,11 +2,14 @@
 
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../../features/auth/hooks/useAuth'; // Import useAuth hook
-import { useMessage } from '../../store/messageStore'; // Import useMessage hook
-import LoginForm from '../../features/auth/components/LoginForm';
-import SignupForm from '../../features/auth/components/SignupForm';
-import analyzerLogo from '../../assets/images/analyzer-logo.svg'; // Your logo asset
+import { useAuth } from '~features/auth/hooks/useAuth.jsx'; // Updated import path and .jsx
+import { useMessage } from '~store/messageStore.jsx'; // Updated import path and .jsx
+import LoginForm from '~features/auth/components/LoginForm.jsx'; // Updated import path and .jsx
+import SignupForm from '~features/auth/components/SignupForm.jsx'; // Updated import path and .jsx
+
+// Import SVG as a React Component using '?react' suffix for vite-plugin-svgr
+import AnalyzerLogo from '~assets/images/analyzer-logo.svg?react'; // Updated import path and ?react
+
 import styles from './HomePage.module.scss';
 
 /**
@@ -17,9 +20,8 @@ const HomePage = () => {
   const { isAuthenticated, loading: authLoading } = useAuth();
   const { addMessage } = useMessage();
   const navigate = useNavigate();
-  const [isLoginView, setIsLoginView] = useState(true); // Toggles between Login and Signup forms
+  const [isLoginView, setIsLoginView] = useState(true);
 
-  // Redirect if already authenticated
   useEffect(() => {
     if (isAuthenticated && !authLoading) {
       navigate('/dashboard', { replace: true });
@@ -28,24 +30,24 @@ const HomePage = () => {
 
   const handleLoginSuccess = () => {
     addMessage('Login successful! Welcome back.', 'success');
-    navigate('/dashboard'); // Redirect to dashboard after successful login
+    navigate('/dashboard');
   };
 
   const handleSignupSuccess = (message) => {
     addMessage(message || 'Account created successfully. Please login.', 'success');
-    setIsLoginView(true); // Switch to login form after successful signup
+    setIsLoginView(true);
   };
 
-  // If still checking auth status, show nothing or a minimal loader (AuthProvider already handles global)
   if (authLoading) {
-    return null; // AuthProvider shows a spinner for initial load
+    return null;
   }
 
   return (
     <div className={styles.homePage}>
       <section className={styles.heroSection}>
         <div className={styles.heroContent}>
-          <img src={analyzerLogo} alt="Tax Analyzer Logo" className={styles.heroLogo} />
+          {/* Use the SVG as a React component */}
+          <AnalyzerLogo className={styles.heroLogo} /> {/* Apply custom class for styling */}
           <h1 className={styles.heroTitle}>Multi-Lingual Legal Tax Analyzer</h1>
           <p className={styles.heroSubtitle}>
             Unlock seamless tax document processing with AI-powered multi-lingual analysis,
