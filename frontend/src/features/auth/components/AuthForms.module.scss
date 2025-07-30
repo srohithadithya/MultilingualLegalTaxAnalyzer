@@ -1,7 +1,7 @@
 /* frontend/src/features/auth/components/AuthForms.module.scss */
 
-@import '../../../styles/variables';
-@import '../../../styles/mixins';
+@use '../../../styles/variables';
+@use '../../../styles/mixins';
 
 .authForm {
   @include card-shadow; // Apply card styling
