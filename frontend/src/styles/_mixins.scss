@@ -1,28 +1,29 @@
 /* frontend/src/styles/_mixins.scss */
 
-@use 'variables';
+// REMOVE THIS LINE IF IT EXISTS: @import 'variables'; // This line causes the error in mixins
+// @use 'variables'; // Also remove this if it exists. Partials shouldn't import each other unless necessary for composition.
 
 // Media Queries Mixins
 @mixin media-sm {
-  @media (min-width: $breakpoint-sm) {
+  @media (min-width: variables.$breakpoint-sm) { // Access variables with 'variables.' prefix
     @content;
   }
 }
 
 @mixin media-md {
-  @media (min-width: $breakpoint-md) {
+  @media (min-width: variables.$breakpoint-md) {
     @content;
   }
 }
 
 @mixin media-lg {
-  @media (min-width: $breakpoint-lg) {
+  @media (min-width: variables.$breakpoint-lg) {
     @content;
   }
 }
 
 @mixin media-xl {
-  @media (min-width: $breakpoint-xl) {
+  @media (min-width: variables.$breakpoint-xl) {
     @content;
   }
 }
@@ -49,58 +50,58 @@
 
 // Card/Box Styling
 @mixin card-shadow {
-  background-color: $color-bg-light;
-  border-radius: $border-radius-md;
-  box-shadow: 0 4px 15px $color-shadow-light;
-  padding: $spacing-xl;
+  background-color: variables.$color-bg-light;
+  border-radius: variables.$border-radius-md;
+  box-shadow: 0 4px 15px variables.$color-shadow-light;
+  padding: variables.$spacing-xl;
 }
 
 // Button Styling
 @mixin button-base {
-  padding: $spacing-md $spacing-lg;
-  border-radius: $border-radius-sm;
-  font-size: $font-size-base;
+  padding: variables.$spacing-md variables.$spacing-lg;
+  border-radius: variables.$border-radius-sm;
+  font-size: variables.$font-size-base;
   font-weight: bold;
   cursor: pointer;
   border: 1px solid transparent;
-  transition: $transition-ease;
+  transition: variables.$transition-ease;
   text-align: center;
   display: inline-block;
 }
 
 @mixin button-primary {
   @include button-base;
-  background-color: $color-primary;
-  color: $color-text-light;
+  background-color: variables.$color-primary;
+  color: variables.$color-text-light;
   &:hover {
-    background-color: darken($color-primary, 10%);
+    background-color: darken(variables.$color-primary, 10%);
   }
 }
 
 @mixin button-outline-primary {
   @include button-base;
   background-color: transparent;
-  color: $color-primary;
-  border-color: $color-primary;
+  color: variables.$color-primary;
+  border-color: variables.$color-primary;
   &:hover {
-    background-color: $color-primary;
-    color: $color-text-light;
+    background-color: variables.$color-primary;
+    color: variables.$color-text-light;
   }
 }
 
 // Input Field Styling
 @mixin input-field {
   width: 100%;
-  padding: $spacing-sm $spacing-md;
-  border: 1px solid $color-border;
-  border-radius: $border-radius-sm;
-  font-size: $font-size-base;
-  color: $color-text-dark;
+  padding: variables.$spacing-sm variables.$spacing-md;
+  border: 1px solid variables.$color-border;
+  border-radius: variables.$border-radius-sm;
+  font-size: variables.$font-size-base;
+  color: variables.$color-text-dark;
   transition: border-color 0.3s ease;
   &:focus {
-    border-color: $color-primary;
+    border-color: variables.$color-primary;
     outline: none;
-    box-shadow: 0 0 0 0.2rem rgba($color-primary, 0.25);
+    box-shadow: 0 0 0 0.2rem rgba(variables.$color-primary, 0.25);
   }
 }
 
