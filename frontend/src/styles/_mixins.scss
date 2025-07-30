@@ -1,6 +1,6 @@
 /* frontend/src/styles/_mixins.scss */
 
-@import 'variables';
+@use 'variables';
 
 // Media Queries Mixins
 @mixin media-sm {
