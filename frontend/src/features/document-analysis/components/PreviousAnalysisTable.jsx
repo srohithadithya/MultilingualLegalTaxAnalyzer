@@ -7,7 +7,7 @@ import Button from '../../../components/Button/Button';
 import LoadingSpinner from '../../../components/LoadingSpinner/LoadingSpinner';
 import { formatDate } from '../../../utils/dateUtils'; // Utility for date formatting
 import { useNavigate } from 'react-router-dom'; // For navigation
-
+import { useDocumentAnalysis } from '../hooks/useDocumentAnalysis.jsx';
 import styles from './PreviousAnalysisTable.module.scss'; // Component-specific styles
 
 /**
