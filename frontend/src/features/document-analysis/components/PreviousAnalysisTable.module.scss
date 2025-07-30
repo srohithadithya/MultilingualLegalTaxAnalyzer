@@ -1,7 +1,7 @@
 /* frontend/src/features/document-analysis/components/PreviousAnalysisTable.module.scss */
 
-@use '../../../styles/variables';
-@use '../../../styles/mixins';
+@use '~styles/variables' as *;
+@use '~styles/mixins' as *;
 
 .tableSection {
   margin-top: $spacing-xxl;
