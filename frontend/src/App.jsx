@@ -2,7 +2,7 @@
 
 import React from 'react';
 import AppRouter from './router/AppRouter'; // Import your AppRouter
-import { AuthProvider } from './features/auth/AuthProvider'; // Import AuthProvider
+import { AuthProvider } from './features/auth/AuthProvider.jsx'; // Import AuthProvider
 import { MessageProvider } from './store/messageStore.jsx'; // Import MessageProvider
 import { AppProvider } from './store/appStore.jsx'; // Import AppProvider
 
