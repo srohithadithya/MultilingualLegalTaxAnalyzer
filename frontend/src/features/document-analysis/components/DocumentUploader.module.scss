@@ -1,7 +1,7 @@
 /* frontend/src/features/document-analysis/components/DocumentUploader.module.scss */
 
-@use '../../../styles/variables';
-@use '../../../styles/mixins';
+@use '~styles/variables' as *;
+@use '~styles/mixins' as *;
 
 .uploaderContainer {
   @include card-shadow;
