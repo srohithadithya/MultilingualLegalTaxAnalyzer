@@ -1,22 +1,18 @@
-// frontend/src/features/document-analysis/hooks/useDocumentAnalysis.js
+// frontend/src/features/document-analysis/hooks/useDocumentAnalysis.jsx
 
 import { useState, useEffect, useCallback } from 'react';
-import analysisService from '../analysisService'; // Feature-specific service
-import { useAuth } from '../../auth/hooks/useAuth'; // To get current user info if needed
+import analysisService from '../analysisService';
+import { useAuth } from '../../auth/hooks/useAuth';
 
-/**
- * Custom hook to manage document analysis operations (upload, fetch, actions).
- */
 export const useDocumentAnalysis = () => {
-  const { isAuthenticated, user } = useAuth(); // Get auth state
-  const [documents, setDocuments] = useState([]); // List of previously analyzed documents
-  const [currentAnalysis, setCurrentAnalysis] = useState(null); // Detailed analysis for one document
+  const { isAuthenticated, user } = useAuth();
+  const [documents, setDocuments] = useState([]);
+  const [currentAnalysis, setCurrentAnalysis] = useState(null);
   const [loading, setLoading] = useState(false);
   const [uploading, setUploading] = useState(false);
   const [error, setError] = useState(null);
-  const [message, setMessage] = useState(null); // Success/info messages
+  const [message, setMessage] = useState(null);
 
-  // --- Fetch Previous Analyses ---
   const fetchPreviousAnalyses = useCallback(async () => {
     if (!isAuthenticated || !user) {
       setDocuments([]);
@@ -39,9 +35,8 @@ export const useDocumentAnalysis = () => {
 
   useEffect(() => {
     fetchPreviousAnalyses();
-  }, [fetchPreviousAnalyses]); // Fetch on mount and when auth state changes
+  }, [fetchPreviousAnalyses]);
 
-  // --- Upload Document ---
   const uploadDocument = useCallback(async (file) => {
     if (!isAuthenticated || !user) {
       setError('You must be logged in to upload documents.');
@@ -53,9 +48,7 @@ export const useDocumentAnalysis = () => {
     try {
       const response = await analysisService.uploadAndAnalyzeDocument(file);
       setMessage(response.message || 'Document uploaded and analysis started.');
-      // After successful upload, refresh the list of documents
       fetchPreviousAnalyses();
-      // If the response includes the new analysis, return it for immediate display
       return response.analysis_result;
     } catch (err) {
       setError(err.response?.data?.message || 'Failed to upload and analyze document.');
@@ -67,7 +60,6 @@ export const useDocumentAnalysis = () => {
   }, [isAuthenticated, user, fetchPreviousAnalyses]);
 
 
-  // --- Fetch Detailed Analysis ---
   const fetchDetailedAnalysis = useCallback(async (documentId) => {
     if (!isAuthenticated || !user) {
       setError('You must be logged in to view analysis.');
@@ -89,9 +81,8 @@ export const useDocumentAnalysis = () => {
   }, [isAuthenticated, user]);
 
 
-  // --- Document Actions (PDF Download, Speech) ---
   const downloadPdf = useCallback(async (documentId, lang) => {
-    setLoading(true); // Can use a separate loading state for actions if more granular control is needed
+    setLoading(true);
     setError(null);
     setMessage(null);
     try {
