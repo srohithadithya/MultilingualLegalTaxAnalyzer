@@ -4,7 +4,7 @@ import React, { useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import Button from '../../../components/Button/Button';
 import LoadingSpinner from '../../../components/LoadingSpinner/LoadingSpinner';
-import { useDocumentAnalysis } from '../hooks/useDocumentAnalysis'; // Import our analysis hook
+import { useDocumentAnalysis } from '../hooks/useDocumentAnalysis.jsx'; // Import our analysis hook
 import styles from './DocumentUploader.module.scss';
 import UploadIcon from '../../assets/icons/upload-icon.svg';
 
