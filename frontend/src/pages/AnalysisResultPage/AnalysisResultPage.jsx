@@ -2,7 +2,7 @@
 
 import React, { useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom'; // useParams to get ID from URL
-import { useDocumentAnalysis } from '../../features/document-analysis/hooks/useDocumentAnalysis';
+import { useDocumentAnalysis } from '../../features/document-analysis/hooks/useDocumentAnalysis.jsx';
 import { useMessage } from '../../store/messageStore';
 import AnalysisDisplay from '../../features/document-analysis/components/AnalysisDisplay';
 import Button from '../../components/Button/Button';
