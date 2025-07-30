@@ -1,8 +1,8 @@
 /* frontend/src/components/Modal/Modal.module.scss */
 
-@import '../../styles/variables';
-@import '../../styles/mixins';
-@import '../../styles/animations';
+@use '../../styles/variables';
+@use '../../styles/mixins';
+@use '../../styles/animations';
 
 .overlay {
   position: fixed;
