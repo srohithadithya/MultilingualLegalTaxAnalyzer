@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import Button from '../../../components/Button/Button';
 import LoadingSpinner from '../../../components/LoadingSpinner/LoadingSpinner';
 import LanguageSelector from '../../../components/LanguageSelector/LanguageSelector';
-import { useDocumentAnalysis } from '../hooks/useDocumentAnalysis'; // Our analysis hook
+import { useDocumentAnalysis } from '../hooks/useDocumentAnalysis.jsx'; // Our analysis hook
 import { formatDate } from '../../../utils/dateUtils';
 import styles from './AnalysisDisplay.module.scss';
 
