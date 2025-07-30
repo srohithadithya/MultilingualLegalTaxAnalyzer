@@ -2,11 +2,13 @@
 
 import React, { useState, useRef } from 'react';
 import PropTypes from 'prop-types';
-import Button from '../../../components/Button/Button';
-import LoadingSpinner from '../../../components/LoadingSpinner/LoadingSpinner';
-import { useDocumentAnalysis } from '../hooks/useDocumentAnalysis.jsx'; // Import our analysis hook
+import Button from '~components/Button/Button'; // Updated import path using alias
+import LoadingSpinner from '~components/LoadingSpinner/LoadingSpinner'; // Updated import path using alias
+import { useDocumentAnalysis } from '~features/document-analysis/hooks/useDocumentAnalysis.jsx'; // Updated import path and .jsx
 import styles from './DocumentUploader.module.scss';
-import UploadIcon from '~assets/icons/upload-icon.svg?react';
+
+// Import SVG as a React Component using '?react' suffix for vite-plugin-svgr
+import UploadIcon from '~assets/icons/upload-icon.svg?react'; // Updated import path using alias and ?react
 
 /**
  * DocumentUploader component provides a drag-and-drop interface for file uploads.
@@ -30,18 +32,6 @@ const DocumentUploader = ({ onUploadSuccess }) => {
     }
   };
 
-  const DocumentUploader = ({ /* ... */ }) => {
-    return (
-        <div className={styles.dragArea}>
-            {/* ... other content ... */}
-            <img src={UploadIcon} alt="Upload" className={styles.uploadIcon} /> {/* Use it like an image */}
-            {/* OR to customize color via CSS 'currentColor' or props: */}
-            {/* <UploadIcon className={styles.uploadIcon} /> */}
-            <p>Drag & Drop your tax receipt/invoice here</p>
-            {/* ... */}
-        </div>
-            );
-    };
   const handleDrop = (e) => {
     e.preventDefault();
     e.stopPropagation();
@@ -53,7 +43,7 @@ const DocumentUploader = ({ onUploadSuccess }) => {
         clearMessages();
       } else {
         setSelectedFile(null);
-        clearMessages(); // Clear existing success/error before showing new error
+        clearMessages();
         alert('Unsupported file type. Please upload PDF, PNG, JPEG, or TIFF.');
       }
     }
@@ -74,16 +64,16 @@ const DocumentUploader = ({ onUploadSuccess }) => {
   };
 
   const onButtonClick = () => {
-    inputRef.current.click(); // Trigger hidden input click
+    inputRef.current.click();
   };
 
   const handleUploadClick = async () => {
     if (selectedFile) {
       const analysisResult = await uploadDocument(selectedFile);
       if (analysisResult) {
-        setSelectedFile(null); // Clear selected file after successful upload
+        setSelectedFile(null);
         if (onUploadSuccess) {
-          onUploadSuccess(analysisResult); // Pass analysis to parent if needed
+          onUploadSuccess(analysisResult);
         }
       }
     } else {
@@ -98,7 +88,7 @@ const DocumentUploader = ({ onUploadSuccess }) => {
         className={`${styles.dragArea} ${dragActive ? styles.dragActive : ''}`}
         onDragEnter={handleDrag}
         onDragLeave={handleDrag}
-        onDragOver={handleDrag}
+        onDragOver={handleDrop} // Corrected: use handleDrop here for actual drop
         onDrop={handleDrop}
       >
         <input
@@ -106,9 +96,11 @@ const DocumentUploader = ({ onUploadSuccess }) => {
           id="file-input"
           ref={inputRef}
           onChange={handleChange}
-          accept=".pdf,.png,.jpg,.jpeg,.tiff" // Accept attribute for file dialog
+          accept=".pdf,.png,.jpg,.jpeg,.tiff"
           className={styles.fileInput}
         />
+        {/* Use the SVG as a React component */}
+        <UploadIcon className={styles.uploadIcon} /> {/* Apply custom class for styling */}
         <p className={styles.dragText}>Drag & Drop your tax receipt/invoice here</p>
         <p className={styles.orText}>OR</p>
         <Button onClick={onButtonClick} variant="outline" size="md">
@@ -141,7 +133,7 @@ const DocumentUploader = ({ onUploadSuccess }) => {
 };
 
 DocumentUploader.propTypes = {
-  onUploadSuccess: PropTypes.func, // Callback when upload and initial analysis succeed
+  onUploadSuccess: PropTypes.func,
 };
 
 export default DocumentUploader;
