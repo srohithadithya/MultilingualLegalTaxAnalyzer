@@ -1,7 +1,7 @@
 /* frontend/src/components/LoadingSpinner/LoadingSpinner.module.scss */
 
-@use '../../styles/variables';
-@use '../../styles/animations';
+@use '~styles/variables' as *;
+@use '~styles/animations' as *;
 
 .spinner {
   display: inline-block;
