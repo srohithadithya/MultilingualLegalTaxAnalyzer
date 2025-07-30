@@ -4,7 +4,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Outlet, Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../features/auth/hooks/useAuth'; // Import useAuth hook
-import { useMessage } from '../store/messageStore'; // Import useMessage hook
+import { useMessage } from '../store/messageStore.jsx'; // Import useMessage hook
 import Button from '../components/Button/Button';
 import LoadingSpinner from '../components/LoadingSpinner/LoadingSpinner'; // For global loading if needed
 import analyzerLogo from '../assets/images/analyzer-logo.svg'; // Your logo asset
