@@ -1,8 +1,8 @@
 /* frontend/src/layouts/AuthLayout.module.scss */
 
-@import '../styles/variables';
-@import '../styles/mixins';
-@import '../styles/animations';
+@use '../styles/variables';
+@use '../styles/mixins';
+@use '../styles/animations';
 
 .authLayout {
   min-height: 100vh;
